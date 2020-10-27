@@ -12,47 +12,52 @@ function addHoverLogicForAllBlockItems() {
     for (let i = 0; i < blockItems.length; i++) {
         if (blockItems[i].parentNode == documentBlockList) {
             blockItems[i].addEventListener("mouseover", function(e) {
-                                                            removeDuplicatesOfGivenType(blockItems, "plus-symbol")
+                                                            removeDuplicatesOfGivenType("plus-symbol")
                                                             showPlusSymbolElement(e)} );
         }
     }
 }
 
 function reCreateNote(srcNote) {
-    let noteToBeCreated = null;
+    let srcNoteElementId = returnElementIdFromOuterHTML(srcNote);
     let mapBlockItemUuidToNode = buildBlockItemUuidToNodeMap(blockItems);
-    if(mapBlockItemUuidToNode.has(srcNote.elementId)) {
-        noteToBeCreated = buildNote(srcNote);
-        mapBlockItemUuidToNode.get(srcNote.elementId).appendChild(noteToBeCreated);
+    if(mapBlockItemUuidToNode.has(srcNoteElementId)) {
+        let noteToBeCreated = buildNote(srcNote);
+        mapBlockItemUuidToNode.get(srcNoteElementId).appendChild(noteToBeCreated);
+        noteToBeCreated.outerHTML = srcNote;
+        return noteToBeCreated;
+    } else {
+        return null;
     }
-    return noteToBeCreated;
+}
+
+
+function returnElementIdFromOuterHTML(outerHTML){
+    let elementIdString = null;
+    elementIdString = outerHTML.substring(outerHTML.indexOf("elementid"),
+                                          outerHTML.indexOf("\">"))
+                                                .slice(11);
+    return elementIdString;
 }
 
 function buildBlockItemUuidToNodeMap(blockItems) {
     let uuidToNodeMap = new Map();
-    blockItems.forEach( item => uuidToNodeMap.set(item, item.uuid));
+    blockItems.forEach( item => uuidToNodeMap.set(item.getAttribute("data-uuid"), item));
     return uuidToNodeMap;
 }
-
-
 
 function loadNotesFromLocalStorage() {
     if (localStorage.length) {
         for (let i = 0; i < localStorage.length; i++) {
-            console.log(localStorage.getItem(localStorage.key(i)));
             let newNote = reCreateNote(localStorage.getItem(localStorage.key(i)));
             console.log(newNote);
         }
     }
 }
 
-function removeDuplicatesOfGivenType(blockItems, classType) {
-    blockItems.forEach(blockItem => {
-        blockItem.childNodes.forEach( childDiv => {
-            childDiv.className == classType ? blockItem.removeChild(childDiv)
-                                            : null;
-        })
-    });
+function removeDuplicatesOfGivenType(classType) {
+    let elementList = document.querySelectorAll("." + classType);
+    elementList.forEach( element => element.parentNode.removeChild(element));
 }
 
 function showPlusSymbolElement(event) {
@@ -80,7 +85,7 @@ function buildPlusSymbol() {
 
 function attachNote(event) {
     let newNote = buildNote(null);
-    let parentNode = event.srcElement.parentNode;
+    let parentNode = event.currentTarget;
     if (!parentNode || !isUniqueChildOfCollection(parentNode.childNodes, "note")) {
         return;
     } else {
@@ -97,10 +102,7 @@ function buildNote(srcNote) {
     let newNote = document.createElement("div");
     newNote.setAttribute("class", "note");
     newNote.setAttribute("contenteditable", "true");
-    if (srcNote) {
-        newNote.innerHTML = srcNote.text;
-        setNodeAlignment(srcNote.isAlignedRight, newNote);
-    } else {
+    if (!srcNote) {
         setNodeAlignment(currentAlignment.isAlignedRight, newNote);
     }
 
@@ -108,9 +110,11 @@ function buildNote(srcNote) {
 }
 
 function setNodeAlignment(isAlignedRight, newNote) {
-    isAlignedRight ? (newNote.style.marginLeft = "55em")
+    isAlignedRight ? (newNote.style.marginLeft = "55em", 
+                      newNote.setAttribute("isAlignedRight", true))
                  : (newNote.style.left = "3em",
-                    newNote.style.marginRight = "10em");
+                    newNote.style.marginRight = "10em", 
+                    newNote.setAttribute("isAlignedRight", false));
 }
 
 
@@ -123,7 +127,7 @@ function addEventListenersToNewNote(newNote) {
 
 
 function finalizeNote(event) {
-    let currentNote = event.currentTarget;
+    let currentNote = event.target;
     if (event.keyCode == 13) {
         event.preventDefault();
         currentNote.blur();
@@ -135,9 +139,9 @@ function finalizeNote(event) {
 }
 
 function saveNoteToLocalStorage(note){
-    console.log(note);
-    localStorage.setItem(note.parentNode.uuid, note.outerHTML)
-    console.log(localStorage.getItem(note.parentNode.uuid));
+    let uuid = note.parentNode.getAttribute("data-uuid");
+    note.setAttribute("elementId", uuid);
+    localStorage.setItem(uuid, note.outerHTML)
 }
 
 function removeNoteFromLocalStorage(uuid){
