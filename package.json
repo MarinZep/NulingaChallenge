@@ -1,0 +1,17 @@
+{
+  "name": "challenge",
+  "version": "1.0.0",
+  "description": "Programming challenge for Nulinga",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Mary",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^8.2.0"
+  }
+}

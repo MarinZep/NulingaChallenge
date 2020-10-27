@@ -1,0 +1,553 @@
+/* line 1, app/assets/stylesheets/content/_blocks.scss */
+[contenteditable] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 5, app/assets/stylesheets/content/_blocks.scss */
+*, *:focus {
+  outline: 0;
+}
+
+/* line 9, app/assets/stylesheets/content/_blocks.scss */
+body {
+  background-color: #fff;
+}
+
+/* line 13, app/assets/stylesheets/content/_blocks.scss */
+.document h1,
+.document h2,
+.document h3 {
+  margin-bottom: 0;
+}
+
+/* line 19, app/assets/stylesheets/content/_blocks.scss */
+.document {
+  min-width: 100%;
+  min-height: 100vh;
+  margin: 0px 0px 50px;
+  font-size: 18px;
+}
+
+/* line 28, app/assets/stylesheets/content/_blocks.scss */
+.document-content {
+  padding: 75px 50px 50px;
+}
+
+/* line 32, app/assets/stylesheets/content/_blocks.scss */
+.document-block-list {
+  margin: 0 auto;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 39, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 4px;
+  align-items: center;
+}
+
+/* line 46, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item-content {
+  padding: 2px 6px;
+  min-height: 30px;
+}
+
+/* line 51, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item-content.focus-visible {
+  background-color: rgba(230, 0, 126, 0.3);
+}
+
+/* line 55, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item .document-button {
+  transition: all ease .5s;
+  margin: 0px 5px;
+  opacity: 0;
+}
+
+/* line 61, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item .document-button a {
+  color: #ced4da;
+}
+
+/* line 65, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item:hover .document-button {
+  opacity: 1;
+}
+
+/* line 69, app/assets/stylesheets/content/_blocks.scss */
+.content-block-type-list {
+  width: 360px;
+  height: 0;
+  overflow: hidden;
+  z-index: 100;
+  background-color: #f8f9fa;
+}
+
+/* line 77, app/assets/stylesheets/content/_blocks.scss */
+.content-block-type-list.show {
+  border: 1px solid #dee2e6;
+  height: 100%;
+  max-height: 240px;
+  overflow-y: scroll;
+  flex-grow: 1;
+}
+
+/* line 85, app/assets/stylesheets/content/_blocks.scss */
+.content-block-type-list-title {
+  margin: 0px;
+  padding: 10px 15px 0px;
+  color: #ced4da;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* line 93, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item-dialog-title {
+  margin: 0px;
+  padding: 5px 15px;
+  color: #ced4da;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* line 101, app/assets/stylesheets/content/_blocks.scss */
+.content-block-type-item {
+  padding: 5px 15px;
+  margin: 5px 0px;
+}
+
+/* line 105, app/assets/stylesheets/content/_blocks.scss */
+.content-block-type-item-img {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-size: 30px;
+}
+
+/* line 115, app/assets/stylesheets/content/_blocks.scss */
+.content-block-type-item:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+/* line 120, app/assets/stylesheets/content/_blocks.scss */
+.content-block-type-item .media-body {
+  align-self: center;
+}
+
+/* line 124, app/assets/stylesheets/content/_blocks.scss */
+.content-block-type-item-title {
+  font-size: 16px;
+  margin: 0px;
+}
+
+/* line 129, app/assets/stylesheets/content/_blocks.scss */
+.content-block-type-item-description {
+  color: #adb5bd;
+  font-size: 16px;
+  margin: 0px;
+}
+
+/* line 135, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 1;
+}
+
+/* line 142, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item.hidden {
+  display: none;
+}
+
+/* line 146, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item-content > img {
+  width: 100%;
+}
+
+/* line 150, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item p {
+  margin-bottom: 0;
+}
+
+/* line 154, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item iframe {
+  width: 100%;
+  min-height: 420px;
+}
+
+/* line 159, app/assets/stylesheets/content/_blocks.scss */
+.document-cover-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 75vh;
+  margin: 0 auto;
+  padding: 5px 0px;
+  max-width: 720px;
+}
+
+/* line 170, app/assets/stylesheets/content/_blocks.scss */
+.document-cover {
+  display: block;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center 0%;
+}
+
+/* line 179, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item-dialog {
+  transition: all ease .5s;
+  padding: 10px 0px;
+  border-radius: 3px;
+  background-color: #fff;
+  width: 0;
+  overflow: hidden;
+  max-width: 240px;
+  position: absolute;
+  left: 170px;
+}
+
+/* line 191, app/assets/stylesheets/content/_blocks.scss */
+.document-block-item-dialog.open {
+  width: 100%;
+  box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
+}
+
+/* line 196, app/assets/stylesheets/content/_blocks.scss */
+.dialog-menu {
+  padding: 0px;
+  margin: 0px;
+  min-width: 180px;
+}
+
+/* line 202, app/assets/stylesheets/content/_blocks.scss */
+.dialog-menu .dialog-menu-item {
+  list-style: none;
+  margin: 5px 0px;
+}
+
+/* line 207, app/assets/stylesheets/content/_blocks.scss */
+.dialog-menu .dialog-menu-item a {
+  display: flex;
+  align-items: center;
+  color: #343a40;
+  text-decoration: none;
+  padding: 0px 15px;
+}
+
+/* line 215, app/assets/stylesheets/content/_blocks.scss */
+.dialog-menu .dialog-menu-item a:hover {
+  background-color: #e9ecef;
+}
+
+/* line 219, app/assets/stylesheets/content/_blocks.scss */
+.dialog-menu-item-name {
+  margin-left: 10px;
+}
+
+/* line 226, app/assets/stylesheets/content/_blocks.scss */
+.block-type-container.bordered-container {
+  border: 1px solid #dee2e6;
+  padding: 10px;
+  background-color: #e9ecef;
+  border-radius: 3px;
+}
+
+/* line 233, app/assets/stylesheets/content/_blocks.scss */
+.theme-color-radio-buttons-list {
+  padding: 15px;
+}
+
+/* line 237, app/assets/stylesheets/content/_blocks.scss */
+.theme-color-list-item label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.7rem;
+}
+
+/* line 243, app/assets/stylesheets/content/_blocks.scss */
+.theme-color-list-item i {
+  font-size: 2rem;
+  margin: 0 1rem;
+}
+
+/* line 248, app/assets/stylesheets/content/_blocks.scss */
+.theme-color-list-item:hover {
+  cursor: pointer;
+}
+
+/* line 252, app/assets/stylesheets/content/_blocks.scss */
+.theme-color-list-item:hover span {
+  text-decoration: underline;
+}
+
+/* line 1, app/assets/stylesheets/content/_bullet.scss */
+.block-type-bullet {
+  display: flex;
+  align-items: center;
+}
+
+/* line 6, app/assets/stylesheets/content/_bullet.scss */
+.block-type-bullet-point {
+  margin-right: 2px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  min-height: calc(1.5em + 3px + 3px);
+}
+
+/* line 17, app/assets/stylesheets/content/_bullet.scss */
+.block-type-bullet-point .bullet {
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+/* line 22, app/assets/stylesheets/content/_bullet.scss */
+.block-type-bullet-text {
+  flex-grow: 1;
+}
+
+/* line 26, app/assets/stylesheets/content/_bullet.scss */
+ol.block-type-container {
+  padding: 0px;
+  counter-reset: ordered-counter 0;
+}
+
+/* line 31, app/assets/stylesheets/content/_bullet.scss */
+ol.block-type-container .document-block-item-content {
+  display: flex;
+  align-items: center;
+}
+
+/* line 36, app/assets/stylesheets/content/_bullet.scss */
+ol.block-type-container .document-block-item-content > *:first-child {
+  flex-grow: 1;
+}
+
+/* line 40, app/assets/stylesheets/content/_bullet.scss */
+ol.block-type-container .document-block-item-content:before {
+  display: block;
+  margin-right: 10px;
+}
+
+/* line 45, app/assets/stylesheets/content/_bullet.scss */
+ol.block-type-container.letter > .document-block-item > .document-block-item-container > .document-block-item-content:before {
+  content: counter(ordered-counter, lower-alpha) ".  ";
+}
+
+/* line 49, app/assets/stylesheets/content/_bullet.scss */
+ol.block-type-container.number > .document-block-item > .document-block-item-container > .document-block-item-content:before {
+  content: counter(ordered-counter) ".  ";
+}
+
+/* line 53, app/assets/stylesheets/content/_bullet.scss */
+ol.block-type-container > .document-block-item {
+  counter-increment: ordered-counter;
+}
+
+/* line 1, app/assets/stylesheets/content/_toolbar.scss */
+.toolbar {
+  transition: all ease .5s;
+  position: absolute;
+  opacity: 0;
+}
+
+/* line 7, app/assets/stylesheets/content/_toolbar.scss */
+.toolbar-action-item {
+  transition: all ease .5s;
+  padding: 5px 15px;
+}
+
+/* line 12, app/assets/stylesheets/content/_toolbar.scss */
+.toolbar-action-item:hover {
+  background-color: #dee2e6;
+  cursor: pointer;
+}
+
+/* line 17, app/assets/stylesheets/content/_toolbar.scss */
+.toolbar-action-list {
+  display: flex;
+  transition: all ease .5s;
+  background-color: #e9ecef;
+  border-radius: 3px;
+  margin: 0px 5px;
+  overflow: hidden;
+  box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
+}
+
+/* line 27, app/assets/stylesheets/content/_toolbar.scss */
+.toolbar a {
+  color: #343a40;
+}
+
+/* line 1, app/assets/stylesheets/content/_dialog.scss */
+.document-block-item-dialog {
+  transition: all ease .5s;
+  padding: 10px 0px;
+  border-radius: 3px;
+  background-color: #fff;
+  width: 0;
+  overflow: hidden;
+  max-width: 240px;
+  position: absolute;
+  left: 170px;
+}
+
+/* line 13, app/assets/stylesheets/content/_dialog.scss */
+.document-block-item-dialog.open {
+  width: 100%;
+  box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
+}
+
+/* line 18, app/assets/stylesheets/content/_dialog.scss */
+.dialog-menu {
+  padding: 0px;
+  margin: 0px;
+  min-width: 180px;
+}
+
+/* line 24, app/assets/stylesheets/content/_dialog.scss */
+.dialog-menu .dialog-menu-item {
+  list-style: none;
+  margin: 5px 0px;
+}
+
+/* line 29, app/assets/stylesheets/content/_dialog.scss */
+.dialog-menu .dialog-menu-item a {
+  display: flex;
+  align-items: center;
+  color: #343a40;
+  text-decoration: none;
+  padding: 0px 15px;
+}
+
+/* line 37, app/assets/stylesheets/content/_dialog.scss */
+.dialog-menu .dialog-menu-item a:hover {
+  background-color: #e9ecef;
+}
+
+/* line 41, app/assets/stylesheets/content/_dialog.scss */
+.dialog-menu-item-name {
+  margin-left: 10px;
+}
+
+/* line 11, app/assets/stylesheets/content/_theme.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 15, app/assets/stylesheets/content/_theme.scss */
+body {
+  position: relative;
+}
+
+/* line 19, app/assets/stylesheets/content/_theme.scss */
+footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* line 26, app/assets/stylesheets/content/_theme.scss */
+body {
+  font-family: "Roboto Slab", sans-serif;
+}
+
+/* line 30, app/assets/stylesheets/content/_theme.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto Slab", sans-serif;
+}
+
+/* line 35, app/assets/stylesheets/content/_theme.scss */
+.block-type-container.bordered-container.color-1 {
+  border-color: #009dfe;
+  background-color: #32B1FF;
+}
+
+/* line 40, app/assets/stylesheets/content/_theme.scss */
+.block-type-container.bordered-container.color-2 {
+  border-color: #41eabe;
+  background-color: #6FEFCE;
+}
+
+/* line 45, app/assets/stylesheets/content/_theme.scss */
+.block-type-container.bordered-container.color-3 {
+  border-color: #fdce03;
+  background-color: #fdd835;
+  color: #655308;
+}
+
+/* line 50, app/assets/stylesheets/content/_theme.scss */
+.block-type-container.bordered-container.color-4 {
+  border-color: #ff31ae;
+  background-color: #FF64C2;
+}
+
+/* line 54, app/assets/stylesheets/content/_theme.scss */
+.block-type-container.bordered-container.color-5 {
+  border-color: #a061de;
+  background-color: #B98BE7;
+  color: #3a093a;
+}
+
+/* line 59, app/assets/stylesheets/content/_theme.scss */
+.theme-color-list-item.color-1 i {
+  color: #32B1FF;
+}
+
+/* line 63, app/assets/stylesheets/content/_theme.scss */
+.theme-color-list-item.color-2 i {
+  color: #6FEFCE;
+}
+
+/* line 67, app/assets/stylesheets/content/_theme.scss */
+.theme-color-list-item.color-3 i {
+  color: #FDD835;
+}
+
+/* line 71, app/assets/stylesheets/content/_theme.scss */
+.theme-color-list-item.color-4 i {
+  color: #FF64C2;
+}
+
+/* line 75, app/assets/stylesheets/content/_theme.scss */
+.theme-color-list-item.color-5 i {
+  color: #B98BE7;
+}
+
+.plus-symbol {
+    height: 4em;
+    width: 4em;
+    position: absolute;
+    z-index:1000;
+}
+
+.note {
+    border: 30px solid transparent;
+    border-top: 50px solid transparent;
+    border-image-source: url("./img-resources/noteborder.png");
+    border-image-slice: 33%;
+    border-image-repeat: round stretch;
+    border-image-outset: 20px 0px 0px;
+    background-color: #FFFEBF;
+    width: 11em;
+    position: absolute;
+    font-size: small;
+    font-family: "Roboto Slab", sans-serif;
+    z-index:1000;
+}
